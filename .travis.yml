@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run carycheng/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-us-east-1-925650942474"
+  bucket_path: "docker-react"
+  on:
+    branch: master
